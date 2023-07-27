@@ -2,6 +2,7 @@ import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query } from '@
 import { MoviesService } from './movies.service';
 import { Movie } from './entities/movie.entity';
 import { CreatemovieDto } from './dto/create-movie.dto';
+import { UpdatemovieDto } from './dto/update-movie.dto';
 
 @Controller('movies')
 export class MoviesController {
@@ -40,7 +41,7 @@ export class MoviesController {
     }
 
     @Patch('/:id')
-    patch(@Param("id") id:number,@Body() updateData){
+    patch(@Param("id") id:number,@Body() updateData:UpdatemovieDto){
         return this.moviesService.update(id,updateData)
 
     }
